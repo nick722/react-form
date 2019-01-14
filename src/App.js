@@ -3,6 +3,7 @@ import "./App.css";
 import FavoriteColorForm from "./components/FavoriteColorForm";
 import Register from "./components/Register";
 import Filters from "./components/Filters";
+import Directory from "./components/Directory";
 
 class App extends Component {
   render() {
@@ -14,8 +15,8 @@ class App extends Component {
         <h2>FavoriteColorForm</h2>
         <FavoriteColorForm />
         <hr />
-        <h2>Register</h2>
-        <Register />
+        <h2>Directory</h2>
+        <Directory />
       </div>
     );
   }

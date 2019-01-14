@@ -29,16 +29,18 @@ function Filters(props) {
           name="person_name"
           placeholder="Name of employee"
           id="txt-name"
+          value={props.currentName}
+          onChange={updateName}
         />
       </div>
       <div className="group">
         <label htmlFor="person-title">Job Title:</label>
-        <select name="person_title" id="person-title">
+        <select
+          name="person_title"
+          id="person-title"
+          value={props.currentTitle}
+        >
           <option value="">- Select -</option>
-          {/*<option value="architect">Architect</option>*/}
-          {/*<option value="designer">Designer</option>*/}
-          {/*<option value="contractor">Contractor</option>*/}
-          {/*<option value="staff">Support Staff</option>*/}
           {titles.map(title => (
             <option value={title.key}>{title.display}</option>
           ))}
@@ -46,7 +48,13 @@ function Filters(props) {
       </div>
       <div className="group">
         <label>
-          <input type="checkbox" value="1" name="person_intern" /> Intern
+          <input
+            checked={props.isIntern}
+            type="checkbox"
+            value="1"
+            name="person_intern"
+          />{" "}
+          Intern
         </label>
       </div>
     </form>
