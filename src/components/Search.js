@@ -2,6 +2,14 @@ import React, { Component } from "react";
 import Limiters from "./Limiters";
 
 class Search extends Component {
+  constructor(props) {
+    super(props);
+    this.changeHandler = this.changeHandler.bind(this);
+    this.updateQuery = this.updateQuery.bind(this);
+    this.onChangeCheckbox = this.onChangeCheckbox.bind(this);
+    this.onChangeRadio = this.onChangeRadio.bind(this);
+  }
+
   state = {
     query: "",
     peerReviewed: false,
@@ -10,25 +18,25 @@ class Search extends Component {
 
   limiters = [
     {
-      label: "Peer Reviewed!",
+      label: "Peer Reviewed",
       name: "peerReviewed",
       type: "checkbox",
       value: "peerReviewed",
-      onChange: "onChangeCheckbox"
+      onChange: this.onChangeCheckbox
     },
     {
-      label: "At My Library!",
-      name: "AtMyLibrary",
+      label: "At My Library",
+      name: "fullTextLimiter",
       type: "radio",
       value: "AtMyLibrary",
-      onChange: "onChangeRadio"
+      onChange: this.onChangeRadio
     },
     {
-      label: "Read online!",
-      name: "readOnline",
+      label: "Read online",
+      name: "fullTextLimiter",
       type: "radio",
       value: "readOnline",
-      onChange: "onChangeRadio"
+      onChange: this.onChangeRadio
     }
   ];
 
@@ -38,17 +46,17 @@ class Search extends Component {
     });
   }
 
-  updateQuery = e => {
+  updateQuery(e) {
     this.changeHandler("query", e.target.value);
-  };
+  }
 
-  updatePeerReviewed = e => {
+  onChangeCheckbox(e) {
     this.changeHandler("peerReviewed", e.target.checked);
-  };
+  }
 
-  updateFullTextLimiter = e => {
+  onChangeRadio(e) {
     this.changeHandler("fullTextLimiter", e.target.value);
-  };
+  }
 
   render() {
     return (
@@ -57,6 +65,7 @@ class Search extends Component {
         <button>Submit</button>
 
         <Limiters
+          limiters={this.limiters}
           onChangeCheckbox={this.updatePeerReviewed}
           onChangeRadio={this.updateFullTextLimiter}
         />
