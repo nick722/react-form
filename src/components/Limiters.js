@@ -1,30 +1,23 @@
 import React, { Component } from "react";
+import Checkbox from "./Checkbox";
+import RadioButton from "./RadioButton";
 
 function Limiters({ onChangeCheckbox, onChangeRadio }) {
   return (
     <div>
-      <label>
-        <input type="checkbox" onChange={onChangeCheckbox} />
-        Peer Reviewed
-      </label>
-      <label>
-        <input
-          type="radio"
-          name="fullTextLimiters"
-          value="readOnline"
-          onChange={onChangeRadio}
-        />
-        Read online
-      </label>
-      <label>
-        <input
-          type="radio"
-          name="fullTextLimiters"
-          value="AtMyLibrary"
-          onChange={onChangeRadio}
-        />
-        In my library
-      </label>
+      <Checkbox label="Peer Reviewed" onChange={onChangeCheckbox} />
+      <RadioButton
+        label="Read online"
+        name="fullTextLimiters"
+        value="readOnline"
+        onChange={onChangeRadio}
+      />
+      <RadioButton
+        label="At my library"
+        name="fullTextLimiters"
+        value="AtMyLibrary"
+        onChange={onChangeRadio}
+      />
     </div>
   );
 }
