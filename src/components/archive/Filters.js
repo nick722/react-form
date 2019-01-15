@@ -30,7 +30,6 @@ function Filters(props) {
           placeholder="Name of employee"
           id="txt-name"
           value={props.currentName}
-          onChange={updateName}
         />
       </div>
       <div className="group">
