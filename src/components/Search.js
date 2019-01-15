@@ -8,6 +8,30 @@ class Search extends Component {
     fullTextLimiter: ""
   };
 
+  limiters = [
+    {
+      label: "Peer Reviewed!",
+      name: "peerReviewed",
+      type: "checkbox",
+      value: "peerReviewed",
+      onChange: "onChangeCheckbox"
+    },
+    {
+      label: "At My Library!",
+      name: "AtMyLibrary",
+      type: "radio",
+      value: "AtMyLibrary",
+      onChange: "onChangeRadio"
+    },
+    {
+      label: "Read online!",
+      name: "readOnline",
+      type: "radio",
+      value: "readOnline",
+      onChange: "onChangeRadio"
+    }
+  ];
+
   changeHandler(name, value) {
     this.setState({
       [name]: value
@@ -22,7 +46,7 @@ class Search extends Component {
     this.changeHandler("peerReviewed", e.target.checked);
   };
 
-  updatefullTextLimiter = e => {
+  updateFullTextLimiter = e => {
     this.changeHandler("fullTextLimiter", e.target.value);
   };
 
@@ -34,7 +58,7 @@ class Search extends Component {
 
         <Limiters
           onChangeCheckbox={this.updatePeerReviewed}
-          onChangeRadio={this.updatefullTextLimiter}
+          onChangeRadio={this.updateFullTextLimiter}
         />
       </form>
     );
